@@ -15,10 +15,11 @@ const { NotImplementedError } = require("../extensions/index.js");
  */
 function createDreamTeam(members) {
     if (!Array.isArray(members)) return false;
+    let pat = / /g;
     return members
         .map((x) => {
             if (typeof x === "string") {
-                x = x.replaceAll(" ", "");
+                x = x.replace(pat, "");
                 return x[0].toUpperCase();
             }
         })
